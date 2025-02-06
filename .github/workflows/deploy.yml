@@ -42,7 +42,6 @@ jobs:
       - name: Deploy to GitHub Pages
         env:
           USE_SSH: true
-          DEPLOYMENT_BRANCH: main
         run: |
           git config --global user.email "Arichikurumo@posteo.com"
           git config --global user.name "gh-actions"
