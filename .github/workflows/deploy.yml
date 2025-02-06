@@ -32,7 +32,7 @@ jobs:
           git config --global user.email "github-actions@github.com"
 
           # Clone the target GitHub Pages repository
-          git clone https://github.com/yourorg/pages-repo.git --depth 1 --branch gh-pages --single-branch pages-output
+          git clone https://github.com/swiss-architecture-knife/docs.git --depth 1 --branch gh-pages --single-branch pages-output
 
           # Copy built files to the GitHub Pages repo
           rsync -av --delete build/ pages-output/
@@ -40,4 +40,4 @@ jobs:
           cd pages-output
           git add .
           git commit -m "Deploy new site version from docs-repo 🚀" || echo "No changes to commit"
-          git push https://x-access-token:${{ secrets.DEPLOY_PAT }}@github.com/yourorg/pages-repo.git gh-pages
+          git push https://x-access-token:${{ secrets.DEPLOY_PAT }}@github.com/swiss-architecture-knife/swiss-architecture-knife.github.io.git gh-pages
