@@ -46,4 +46,4 @@ jobs:
           git config --global user.email "Arichikurumo@posteo.com"
           git config --global user.name "gh-actions"
           npm ci
-          npm deploy
+          npm run deploy
