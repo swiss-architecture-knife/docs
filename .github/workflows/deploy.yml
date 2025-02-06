@@ -1,51 +1,43 @@
-name: Deploy to GitHub Pages
+name: Deploy Docusaurus to swiss-architecture-knife.github.io
 
 on:
   push:
     branches:
-      - main
-    # Review gh actions docs if you want to further define triggers, paths, etc
-    # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on
+      - main  # Adjust to your default branch
+  workflow_dispatch:  # Allow manual triggering
 
 jobs:
-  build:
-    name: Build Docusaurus
+  build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
         with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 18
-          cache: npm
+          node-version: '18'
+          cache: 'npm'
 
       - name: Install dependencies
-        run: npm ci
-      - name: Build website
+        run: npm install
+
+      - name: Build Docusaurus
         run: npm run build
 
-      - name: Upload Build Artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: build
+      - name: Deploy to GitHub Pages Repo
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
 
-  deploy:
-    name: Deploy to GitHub Pages
-    needs: build
+          # Clone the target GitHub Pages repository
+          git clone https://github.com/yourorg/pages-repo.git --depth 1 --branch gh-pages --single-branch pages-output
 
-    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
-    permissions:
-      pages: write # to deploy to Pages
-      id-token: write # to verify the deployment originates from an appropriate source
+          # Copy built files to the GitHub Pages repo
+          rsync -av --delete build/ pages-output/
 
-    # Deploy to the github-pages environment
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          cd pages-output
+          git add .
+          git commit -m "Deploy new site version from docs-repo 🚀" || echo "No changes to commit"
+          git push https://x-access-token:${{ secrets.DEPLOY_PAT }}@github.com/yourorg/pages-repo.git gh-pages
