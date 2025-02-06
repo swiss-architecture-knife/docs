@@ -20,6 +20,7 @@ const config: Config = {
   organizationName: 'swiss-architecture-knife', // Usually your GitHub org/user name.
   projectName: 'swiss-architecture-knife.github.io', // Usually your repo name.
   trailingSlash: false,
+  deploymentBranch: main,
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
