@@ -44,7 +44,7 @@ jobs:
           USE_SSH: true
           DEPLOYMENT_BRANCH: main
         run: |
-          git config --global user.email "Arichikurumo@posteo.com"
+          git config --global user.email "gh-actions@github.com"
           git config --global user.name "gh-actions"
           npm ci
           npm run deploy
