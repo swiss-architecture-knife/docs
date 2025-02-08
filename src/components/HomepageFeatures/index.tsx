@@ -11,32 +11,30 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
+    title: 'Structured documentation of system and software architecture',
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+          swark lets you define how your overall system and software architecture documentation looks like.
+          Define it once, reuse it for your other environments, products and projects.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
+    title: 'Pull in data from your CMDB, Jira and other sources',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+          Documentation quickly becomes outdated. swark allows you to link the static part of the documentation to your current environment.
       </>
     ),
   },
   {
-    title: 'Powered by React',
+    title: 'A documentation tool for practical architects, software and DevOps engineers',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+          swark is made by and for engine room people and not ivory tower owners.
       </>
     ),
   },

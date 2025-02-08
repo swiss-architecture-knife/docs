@@ -6,7 +6,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'swark',
-  tagline: 'Swiss Architecture Knife - The structured CRM for software architecture, system design and IT governance',
+  tagline: 'Swiss Architecture Knife - The structured CMS for software architecture, system design and IT governance',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -17,7 +17,7 @@ const config: Config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'swiss-architecture-knife', // Usually your GitHub org/user name.
-  projectName: 'framework', // Usually your repo name.
+  projectName: 'swark', // Usually your repo name.
   trailingSlash: false,
 
   onBrokenLinks: 'throw',
@@ -98,16 +98,8 @@ const config: Config = {
           title: 'Community',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-            },
-            {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
-            },
-            {
               label: 'X',
-              href: 'https://x.com/docusaurus',
+              href: 'https://x.com/dreitier',
             },
           ],
         },
@@ -115,17 +107,13 @@ const config: Config = {
           title: 'More',
           items: [
             {
-              label: 'Blog',
-              to: '/blog',
-            },
-            {
               label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              href: 'https://github.com/swiss-architecture-knife/swark',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} swark.`,
     },
     prism: {
       theme: prismThemes.github,
