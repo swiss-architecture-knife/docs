@@ -1,0 +1,36 @@
+@startuml
+!include <C4/C4_Container>
+System_Boundary(team, "Your team") {
+    Person(devops, "DevOps")
+    Person(devs, "Software developers")
+    Person(architects, "Architects")
+}
+
+System_Boundary(public, "swark", "swark") {
+    Container(swark_instance, "swark instance", "Your customizations")
+    Container(swark_framework, "swark framework")
+    ContainerDb(db, "Configuration items", "MySQL")
+    ContainerDb(content, "Static content", "Git")
+}
+
+System_Boundary(infra, "Infrastructure") {
+    System(kubernetes, "Kubernetes")
+    System(infra_3rd, "3rd party system")
+}
+
+System_Boundary(mgmt, "Management") {
+    System(jira, "Jira")
+    System(mgmt_3rd, "3rd party system")
+}
+
+Rel_D(swark_instance, swark_framework, "uses")
+Rel_D(swark_framework, db, "reads data")
+Rel_D(swark_framework, content, "reads content")
+Rel_D(kubernetes, swark_instance, "Ingest configuration items", "api")
+Rel_D(infra_3rd, swark_instance, "Ingest configuration items", "api")
+Rel_D(jira, swark_instance, "Ingest configuration items", "api")
+Rel_D(mgmt_3rd, swark_instance, "Ingest configuration items", "api")
+Rel_D(devops, swark_instance, "uses")
+Rel_D(devs, swark_instance, "uses")
+Rel_D(architects, swark_instance, "uses")
+@enduml
