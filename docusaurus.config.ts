@@ -18,7 +18,7 @@ const config: Config = {
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'swiss-architecture-knife', // Usually your GitHub org/user name.
   projectName: 'swiss-architecture-knife.github.io', // Usually your repo name.
-  trailingSlash: false,
+  // trailingSlash: false,
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
